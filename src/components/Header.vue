@@ -69,11 +69,18 @@ const closeMenu = () => (isOpen.value = false);
           {{ route.name }}
         </RouterLink>
 
-        <button
+        <!-- <button
           class="rounded-[50px] cursor-pointer mt-[30px] py-2 px-[18px] uppercase border border-white"
         >
           contact us
-        </button>
+        </button> -->
+    <button
+  class="rounded-[50px] z-10 cursor-pointer mt-[30px] py-2 px-[18px] uppercase border border-white"
+  @click="$router.push('/contact')"
+>
+  contact us
+</button>
+
       </div>
     </div>
   </header>

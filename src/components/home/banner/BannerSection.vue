@@ -85,7 +85,7 @@ import GradientButton from "../../common/GradiantButton.vue";
   </section>
 
   <div
-    class="gap-[21px] uppercase text-[12px] mt-[21px] mx-auto md:text-[16px] justify-center items-center flex max-w-[250px]"
+    class="gap-[21px] uppercase text-white text-[12px] mt-[21px] mx-auto md:text-[16px] justify-center items-center flex max-w-[250px]"
   >
     <p>+</p>
     <p class="">Scroll to explore</p>

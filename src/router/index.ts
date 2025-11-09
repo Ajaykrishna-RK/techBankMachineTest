@@ -4,6 +4,7 @@ import Products from "../pages/Products.vue";
 import Teams from "../pages/Teams.vue";
 import Career from "../pages/Career.vue";
 import Blog from "../pages/Blog.vue";
+import Contact from "../pages/Contact.vue";
 
 export const routes = [
   { path: "/", name: "Home", component: Home },
@@ -11,6 +12,7 @@ export const routes = [
   { name: "Teams", path: "/teams", component: Teams },
   { name: "Career", path: "/career", component: Career },
   { name: "Blog", path: "/blog", component: Blog },
+    { name: "Contact", path: "/contact", component: Contact },
 ];
 
 const router = createRouter({
