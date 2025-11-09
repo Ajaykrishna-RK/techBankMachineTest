@@ -1,0 +1,47 @@
+{
+  "connectedBrands": [
+    {
+      "title": "BLUE TIGERS",
+      "description": "Fueling the Future of Film, Sports, and Technology.",
+      "image": "/images/connected/1.png",
+       "socialLinks":["/images/LinkedinLogo.svg","/images/InstagramLogo.svg","/images/XLogo.svg","/images/YoutubeLogo.svg"]
+    },
+    {
+      "title": "KOCHI BLUE TIGERS",
+      "description": "A dynamic cricket team redefining the game with passion and power.",
+      "image": "/images/connected/2.png",
+      "socialLinks":["/images/Vector-1.svg","/images/LinkedinLogo.svg","/images/InstagramLogo.svg","/images/XLogo.svg","/images/YoutubeLogo.svg"]
+   
+    },
+    {
+      "title": "BLUE TIGERS lONDON",
+      "description": "A creative production house bringing bold stories to life",
+      "image": "/images/connected/3.png",
+      "socialLinks":["/images/LinkedinLogo.svg","/images/InstagramLogo.svg","/images/XLogo.svg","/images/YoutubeLogo.svg"]
+   
+    }
+  ],
+"blogs":[
+    {
+        "image":"/images/blogs/1.png",
+        "title":"Smart AI Chatbot",
+        "description":"Enhance customer engagement with personalized, AI-driven interactions."
+    },
+     {
+        "title":"Smart AI Chatbot",
+          "image":"/images/blogs/2.png",
+        "description":"Enhance customer engagement with personalized, AI-driven interactions."
+    }
+    ,
+     {
+        "title":"Smart AI Chatbot",
+          "image":"/images/blogs/3.jpg",
+        "description":"Enhance customer engagement with personalized, AI-driven interactions."
+    },
+     {
+        "title":"Smart AI Chatbot",
+          "image":"/images/blogs/4.jpg",
+        "description":"Enhance customer engagement with personalized, AI-driven interactions."
+    }
+]
+}
