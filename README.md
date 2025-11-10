@@ -28,6 +28,9 @@ Built using **Vue.js (with TypeScript)** and **Tailwind CSS**.
 ## **How to Run Locally**
 
 git clone https://github.com/Ajaykrishna-RK/techBankMachineTest.git
+
 cd techBankMachineTest
+
 npm install
+
 npm run dev
