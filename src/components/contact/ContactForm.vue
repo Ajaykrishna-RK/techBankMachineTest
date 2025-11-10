@@ -3,16 +3,28 @@ import { ref } from "vue";
 import BaseInput from "../common/BaseInput.vue";
 import GradientButton from "../common/GradiantButton.vue";
 
-const name = ref("");
-const email = ref("");
-const phone = ref("");
-const message = ref("");
+const form = ref({
+  name: "",
+  email: "",
+  phone: "",
+  message: "",
+});
+
+const handleSubmit = () => {
+  console.log("✅ Form Data:", form.value);
+  alert("Form submitted successfully!");
+
+  // ✅ Reset all fields
+  (Object.keys(form.value) as (keyof typeof form.value)[]).forEach(
+    (k) => (form.value[k] = "")
+  );
+};
 </script>
 
 <template>
   <div class="min-h-screen bg-black">
     <div
-      class="container flex flex-col lg:flex-row gap-4  lg:gap-[66px] py-20 lg:py-40"
+      class="container flex flex-col lg:flex-row gap-4 lg:gap-[66px] py-20 lg:py-40"
     >
       <!-- Left Card (Image Section) -->
       <div class="lg:hidden text-center grid">
@@ -64,6 +76,7 @@ const message = ref("");
         </div>
 
         <form
+          @submit.prevent="handleSubmit"
           class="flex flex-col text-start justify-center items-center w-full gap-2 sm:gap-4 mt-[30px] sm:mt-[34px]"
         >
           <div
@@ -72,27 +85,27 @@ const message = ref("");
             <BaseInput
               label="Name"
               placeholder="Enter Your Name"
-              v-model="name"
+              v-model="form.name"
               required
             />
             <BaseInput
               label="Email"
               type="email"
               placeholder="Enter Email"
-              v-model="email"
+              v-model="form.email"
               required
             />
             <BaseInput
               label="Phone Number"
               placeholder="Enter Your Phone Number"
-              v-model="phone"
+              v-model="form.phone"
               required
             />
           </div>
           <div class="flex flex-col gap-2 w-full max-w-[561px]">
             <label class="text-sm text-gray-300 font-medium">Message</label>
             <textarea
-              v-model="message"
+              v-model="form.message"
               placeholder="Write your message"
               rows="4"
               class="bg-[rgba(26,26,26,1)] border border-[rgba(71,71,71,1)] rounded-md px-4 py-3 text-gray-200 focus:outline-none transition-all resize-none"
@@ -100,6 +113,7 @@ const message = ref("");
           </div>
 
           <GradientButton
+            type="submit"
             customClass="text-[14px] mt-[30px] sm:text-[16px] pl-[18px] pr-[5px] h-[60px]"
           >
             <template #icon>
