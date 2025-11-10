@@ -1,16 +1,13 @@
 <template>
   <div
-    class="max-w-[300px] sm:max-w-[375px] max-h-[578px] overflow-hidden rounded-[40px] border-[0.87px]"
-    :style="{
-      borderImageSource:
-        'linear-gradient(151.62deg, #BB83FF 1.55%, #B1B1B1 28.63%, #313131 115.73%)',
-      borderImageSlice: 1,
-      background:
-        'linear-gradient(160.79deg, #0C001A 4.45%, #000000 42.61%, #000000 100%)',
-    }"
+    class="p-[1px] rounded-[26px]"
+    style="background: linear-gradient(151.62deg, #BB83FF 1.55%, #B1B1B1 28.63%, #313131 115.73%);"
   >
-    <div class="px-[21px] py-[33px]">
-      <div>
+    <div
+      class="max-w-[300px] sm:max-w-[375px] max-h-[578px] overflow-hidden rounded-[26px]"
+      style="background: linear-gradient(160.79deg, #0C001A 4.45%, #000000 42.61%, #000000 100%);"
+    >
+      <div class="px-[21px] py-[33px]">
         <p class="uppercase text-[20px] sm:text-[24px] text-white">
           {{ title }}
         </p>
@@ -19,29 +16,29 @@
         >
           {{ description }}
         </p>
+
+        <div
+          v-if="socialLinks?.length"
+          class="flex items-center mt-[17px] gap-[27px]"
+        >
+          <img
+            v-for="(icon, index) in socialLinks"
+            :key="index"
+            :src="icon"
+            :alt="`social-link-${index}`"
+            class="w-[24px] h-[24px] cursor-pointer hover:opacity-80 transition-opacity duration-200"
+          />
+        </div>
       </div>
 
-      <div
-        v-if="socialLinks?.length"
-        class="flex items-center mt-[17px] gap-[27px]"
-      >
+      <!-- Image section -->
+      <div class="px-2.5 pb-2.5">
         <img
-          v-for="(icon, index) in socialLinks"
-          :key="index"
-          :src="icon"
-          :alt="`social-link-${index}`"
-          class="w-[24px] h-[24px] cursor-pointer hover:opacity-80 transition-opacity duration-200"
+          :src="image"
+          :alt="title"
+          class="w-full h-full object-cover rounded-[30px]"
         />
       </div>
-    </div>
-
-    <!-- Image section -->
-    <div class="px-2.5 pb-2.5">
-      <img
-        :src="image"
-        :alt="title"
-        class="w-full h-full object-cover rounded-[30px]"
-      />
     </div>
   </div>
 </template>
