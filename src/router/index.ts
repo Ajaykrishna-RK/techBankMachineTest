@@ -17,10 +17,11 @@ export const routes = [
 ];
 
 export const menuRoutes = computed(() => routes.slice(0, -1));
+
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(_to, _from, _savedPosition) {
     return { top: 0, behavior: "smooth" };
   },
 });
