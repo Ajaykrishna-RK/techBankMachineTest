@@ -1,5 +1,27 @@
-# Vue 3 + TypeScript + Vite
+Techbank Frontend Developer Machine Test
+Overview
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Built using Vue.js (with TypeScript) and Tailwind CSS.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+Tech Stack:-
+Vue.js 3 + TypeScript
+Tailwind CSS
+Pinia (State Management)
+Vue Router (Routing)
+
+
+Features:-
+Responsive design (Desktop, Tablet, Mobile)
+Dynamic slider with JSON data
+Clean and reusable component structure
+
+Live url:- 
+https://tech-bank-machine-test.vercel.app/
+
+How to Run Locally:-
+git clone [your-github-repo-link]
+cd techBankMachineTest
+npm install
+npm run dev
+Then open http://localhost:5173
+in your browser.
