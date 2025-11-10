@@ -1,19 +1,27 @@
 <template>
-  <div class="flex flex-col gap-2 w-full">
-    <label v-if="label" :for="id" class="text-sm text-gray-300 font-medium">
-      {{ label }}
-      <span v-if="required" class="text-red-500">*</span>
-    </label>
+  <div class="w-full flex justify-center">
+    <div class="w-full max-w-[561px] flex flex-col items-start ">
+      <!-- Label -->
+      <label
+        v-if="label"
+        :for="id"
+        class="text-sm  text-gray-300 font-medium text-left w-full"
+      >
+        {{ label }}
+        <span v-if="required" class="text-white">*</span>
+      </label>
 
-    <input
-      :id="id"
-      :type="type"
-      :value="modelValue"
-      :placeholder="placeholder"
-      :required="required"
-      class="w-full bg-transparent border border-gray-600 rounded-md px-4 py-3 text-gray-200 focus:outline-none focus:border-purple-500 transition-all"
-      @input="onInput"
-    />
+      <!-- Input -->
+      <input
+        :id="id"
+        :type="type"
+        :value="modelValue"
+        :placeholder="placeholder"
+        :required="required"
+        class="w-full bg-[rgba(26,26,26,1)] mb-4 mt-2 border border-[rgba(71,71,71,1)] rounded-md px-4 py-3 text-gray-200 text-left focus:outline-none focus:border-[rgba(187,131,255,1)] transition-all"
+        @input="onInput"
+      />
+    </div>
   </div>
 </template>
 

@@ -6,9 +6,26 @@ import BlogsCard from "./BlogsCard.vue";
 import { useDataStore } from "../../../stores/dataStore";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Pagination } from "swiper/modules";
+import { ref } from "vue";
 
 const store = useDataStore();
 const { blogs, loading, error } = storeToRefs(store);
+const swiperRef = ref<any>(null);
+const isBeginning = ref(true);
+const isEnd = ref(false);
+
+const onSwiper = (swiper: any) => {
+  swiperRef.value = swiper;
+  // initial state
+  isBeginning.value = swiper.isBeginning;
+  isEnd.value = swiper.isEnd;
+};
+
+// handle slide change
+const onSlideChange = (swiper: any) => {
+  isBeginning.value = swiper.isBeginning;
+  isEnd.value = swiper.isEnd;
+};
 </script>
 
 <template>
@@ -17,7 +34,7 @@ const { blogs, loading, error } = storeToRefs(store);
 
     <HeadingComponent text="Blogs" />
 
-    <div class=" sm:mt-[21px]">
+    <div class="sm:mt-[21px]">
       <div v-if="loading" class="text-white text-center">Loading...</div>
       <div v-else-if="error" class="text-red-400 text-center">{{ error }}</div>
 
@@ -26,7 +43,8 @@ const { blogs, loading, error } = storeToRefs(store);
       >
         <!-- ⬅️ Left Arrow -->
         <button
-          class="custom-prev absolute cursor-pointer -left-4 md:left-4 top-1/2 -translate-y-1/2 z-10"
+          :disabled="isBeginning"
+          class="custom-prev absolute cursor-pointer -left-4 top-1/2 disabled:opacity-30 disabled:cursor-not-allowed -translate-y-1/2 z-10"
         >
           <img
             src="/images/left.svg"
@@ -53,6 +71,8 @@ const { blogs, loading, error } = storeToRefs(store);
             768: { slidesPerView: 2, centeredSlides: false, spaceBetween: 10 },
             1024: { slidesPerView: 3, centeredSlides: false, spaceBetween: 20 },
           }"
+          @swiper="onSwiper"
+          @slideChange="onSlideChange"
           class="mySwiper max-w-[1200px] w-full flex flex-col justify-center"
         >
           <swiper-slide
@@ -74,7 +94,8 @@ const { blogs, loading, error } = storeToRefs(store);
 
         <!-- ➡️ Right Arrow -->
         <button
-          class="custom-next cursor-pointer absolute -right-4 md:right-4 top-1/2 -translate-y-1/2 z-10"
+          :disabled="isEnd"
+          class="custom-next cursor-pointer absolute disabled:opacity-30 disabled:cursor-not-allowed -right-4 top-1/2 -translate-y-1/2 z-10"
         >
           <img
             src="/images/right.svg"

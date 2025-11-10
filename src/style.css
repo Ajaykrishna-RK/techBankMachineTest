@@ -112,7 +112,7 @@ body {
 } 
 
 /* Arrows hover effects */
-.custom-prev img,
+/* .custom-prev img,
 .custom-next img {
   opacity: 0.8;
   transition: opacity 0.3s, transform 0.3s;
@@ -122,4 +122,4 @@ body {
 .custom-next:hover img {
   opacity: 1;
   transform: scale(1.2);
-}
+} */

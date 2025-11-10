@@ -4,7 +4,7 @@ import GradientButton from "../../common/GradiantButton.vue";
 
 <template>
   <section
-    class="relative mt-[50px] w-full container flex h-[90vh] sm:h-[800px] md:h-[880px] items-center justify-center bg-black overflow-hidden"
+    class="relative  w-full container flex h-[90vh] sm:h-[800px] md:h-[880px] items-center justify-center bg-black overflow-hidden"
     style="height: 830px"
   >
     <!-- Desktop Banner -->

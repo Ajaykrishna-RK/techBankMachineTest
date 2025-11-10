@@ -6,9 +6,33 @@ import ShortHeading from "../../common/ShortHeading.vue";
 import ConnectedCard from "./ConnectedCard.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Pagination } from "swiper/modules";
+import { ref } from "vue";
+
+// Import Swiper CSS
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const store = useDataStore();
 const { connectedBrands, loading, error } = storeToRefs(store);
+
+// track swiper instance and state
+const swiperRef = ref<any>(null);
+const isBeginning = ref(true);
+const isEnd = ref(false);
+
+const onSwiper = (swiper: any) => {
+  swiperRef.value = swiper;
+  // initial state
+  isBeginning.value = swiper.isBeginning;
+  isEnd.value = swiper.isEnd;
+};
+
+// handle slide change
+const onSlideChange = (swiper: any) => {
+  isBeginning.value = swiper.isBeginning;
+  isEnd.value = swiper.isEnd;
+};
 </script>
 
 <template>
@@ -25,17 +49,24 @@ const { connectedBrands, loading, error } = storeToRefs(store);
       >
         <!-- ⬅️ Left Arrow -->
         <button
-          class="custom-prev absolute cursor-pointer -left-6 md:left-4 top-1/2 -translate-y-1/2 z-10"
+          class="custom-prev absolute flex lg:hidden cursor-pointer -left-3 top-1/2 -translate-y-1/2 z-10 disabled:opacity-30 disabled:cursor-not-allowed"
+          :disabled="isBeginning"
         >
-          <img src="/images/left.svg" alt="Previous" class="w-[59px] h-9" />
+          <img
+            src="/images/left.svg"
+            alt="Previous"
+            class="w-[30px] sm:w-[59px] h-[25px] sm:h-9"
+          />
         </button>
 
+        <!-- 🔘 Pagination (must be before swiper for detection) -->
+        <div class="custom-pagination mb-6 flex justify-center"></div>
+
         <!-- Swiper Section -->
-        <swiper
-          :modules="[Pagination, Navigation]"
+        <Swiper
+          :modules="[Navigation, Pagination]"
           :slides-per-view="1"
           :space-between="10"
-        
           :centered-slides="true"
           :navigation="{
             nextEl: '.custom-next',
@@ -46,12 +77,15 @@ const { connectedBrands, loading, error } = storeToRefs(store);
             el: '.custom-pagination',
           }"
           :breakpoints="{
-            768: { slidesPerView: 2, centeredSlides: false ,spaceBetween:10},
-            1024: { slidesPerView: 3, centeredSlides: false ,spaceBetween:0},
+            768: { slidesPerView: 2, centeredSlides: false, spaceBetween: 10 },
+            1024: { slidesPerView: 3, centeredSlides: false, spaceBetween: 20 },
           }"
+          @swiper="onSwiper"
+          @slideChange="onSlideChange"
+
           class="mySwiper max-w-[1200px] w-full flex justify-center"
         >
-          <swiper-slide
+          <SwiperSlide
             v-for="(brand, index) in connectedBrands"
             :key="index"
             class="flex justify-center text-start items-center"
@@ -62,20 +96,23 @@ const { connectedBrands, loading, error } = storeToRefs(store);
               :image="brand.image"
               :socialLinks="brand.socialLinks"
             />
-          </swiper-slide>
-        </swiper>
+          </SwiperSlide>
+        </Swiper>
 
         <!-- ➡️ Right Arrow -->
         <button
-          class="custom-next cursor-pointer absolute -right-6 md:right-4 top-1/2 -translate-y-1/2 z-10"
+          class="custom-next cursor-pointer flex lg:hidden absolute -right-3 top-1/2 -translate-y-1/2 z-10 disabled:opacity-30 disabled:cursor-not-allowed"
+          :disabled="isEnd"
         >
-          <img src="/images/right.svg" alt="Next" class="w-[59px] h-9" />
+          <img
+            src="/images/right.svg"
+            alt="Next"
+            class="w-[30px] sm:w-[59px] h-[25px] sm:h-9"
+          />
         </button>
-
-        <!-- 🔘 Pagination Dots -->
-
-        <div class="custom-pagination  mt-6 flex justify-center"></div>
       </div>
     </div>
   </div>
 </template>
+
+
