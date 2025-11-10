@@ -7,14 +7,14 @@ import GradientButton from "../../common/GradiantButton.vue";
     class="relative  w-full container flex h-[90vh] sm:h-[800px] md:h-[880px] items-center justify-center bg-black overflow-hidden"
     style="height: 830px"
   >
-    <!-- Desktop Banner -->
+
     <img
       src="/images/banner/banner-1.png"
       alt="Banner"
       class="hidden sm:block w-full h-full object-fill xl:object-contain"
     />
 
-    <!-- Mobile Banner -->
+
     <img
       src="/images/banner/bannerMob.png"
       alt="Mobile Banner"
@@ -59,7 +59,7 @@ import GradientButton from "../../common/GradiantButton.vue";
       <div
         class="flex flex-col xl:flex-row gap-7 xl:gap-[50px] mt-[30px] w-full max-w-[800px] mx-auto justify-center items-center"
       >
-        <!-- Text block -->
+   
         <div
           class="text-[14px] md:text-[15px] leading-[100%] text-center xl:text-start"
         >
@@ -67,7 +67,7 @@ import GradientButton from "../../common/GradiantButton.vue";
           <p class="mt-1">TechBank’s Products for Success</p>
         </div>
 
-        <!-- Gradient Button -->
+    
         <GradientButton
           customClass="text-[14px] sm:text-[16px] pl-[18px] pr-[5px] h-[60px]"
         >

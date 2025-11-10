@@ -16,12 +16,12 @@ const isEnd = ref(false);
 
 const onSwiper = (swiper: any) => {
   swiperRef.value = swiper;
-  // initial state
+
   isBeginning.value = swiper.isBeginning;
   isEnd.value = swiper.isEnd;
 };
 
-// handle slide change
+
 const onSlideChange = (swiper: any) => {
   isBeginning.value = swiper.isBeginning;
   isEnd.value = swiper.isEnd;
@@ -41,7 +41,7 @@ const onSlideChange = (swiper: any) => {
       <div
         class="connected-brands-section w-full flex flex-col justify-center items-center py-10 relative"
       >
-        <!-- ⬅️ Left Arrow -->
+
         <button
           :disabled="isBeginning"
           class="custom-prev absolute cursor-pointer -left-4 top-1/2 disabled:opacity-30 disabled:cursor-not-allowed -translate-y-1/2 z-10"
@@ -53,7 +53,7 @@ const onSlideChange = (swiper: any) => {
           />
         </button>
 
-        <!-- Swiper Section -->
+
         <swiper
           :modules="[Pagination, Navigation]"
           :slides-per-view="1"
@@ -92,7 +92,7 @@ const onSlideChange = (swiper: any) => {
           <div class="custom-pagination mt-6 mb-2 flex justify-center"></div>
         </swiper>
 
-        <!-- ➡️ Right Arrow -->
+     
         <button
           :disabled="isEnd"
           class="custom-next cursor-pointer absolute disabled:opacity-30 disabled:cursor-not-allowed -right-4 top-1/2 -translate-y-1/2 z-10"
@@ -104,7 +104,7 @@ const onSlideChange = (swiper: any) => {
           />
         </button>
 
-        <!-- 🔘 Pagination Dots -->
+
 
         <div class="custom-pagination mt-6 flex justify-center"></div>
       </div>
