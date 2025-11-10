@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import { routes } from "../router"; // ✅ Import your routes
+import { ref } from "vue";
+
 import { RouterLink } from "vue-router";
+import AppLogo from "./common/AppLogo.vue";
+import { menuRoutes } from "../router";
+import ContactButton from "./common/ContactButton.vue";
 
 const isOpen = ref(false);
 const toggleMenu = () => (isOpen.value = !isOpen.value);
 const closeMenu = () => (isOpen.value = false);
-
-const menuRoutes = computed(() => routes.slice(0, -1));
 </script>
 
 <template>
@@ -16,16 +17,7 @@ const menuRoutes = computed(() => routes.slice(0, -1));
       class="container text-white py-[18px] flex items-center justify-between shadow-md"
     >
       <!-- Logo -->
-      <div
-        class="flex items-center cursor-pointer h-[34px] w-[129px] space-x-3"
-      >
-        <img
-          @click="$router.push('/')"
-          src="/src/assets/Group-1.svg"
-          alt="Company Logo"
-          class="object-contain w-full h-full"
-        />
-      </div>
+      <AppLogo customClass="w-[129px]  h-[34px]" />
 
       <!-- Desktop Menu -->
       <nav class="hidden lg:flex items-center space-x-6">
@@ -44,14 +36,12 @@ const menuRoutes = computed(() => routes.slice(0, -1));
         </RouterLink>
       </nav>
 
-      <!-- Desktop Contact Button -->
-      <RouterLink
+      <ContactButton
         to="/contact"
-        @click="closeMenu"
-        class="rounded-[50px] hidden lg:flex cursor-pointer py-2 px-[18px] uppercase border border-white"
-      >
-        contact us
-      </RouterLink>
+        text="contact us"
+        customClass="hidden lg:flex"
+        :onClick="closeMenu"
+      />
 
       <!-- Mobile Menu Toggle -->
       <button
@@ -70,8 +60,6 @@ const menuRoutes = computed(() => routes.slice(0, -1));
           src="/src/assets/close.png"
           alt="Menu"
         />
-
-       
       </button>
 
       <!-- Mobile Menu -->
@@ -89,18 +77,13 @@ const menuRoutes = computed(() => routes.slice(0, -1));
           {{ route.name }}
         </RouterLink>
 
-        <!-- <button
-          class="rounded-[50px] cursor-pointer mt-[30px] py-2 px-[18px] uppercase border border-white"
-        >
-          contact us
-        </button> -->
-        <RouterLink
-          class="rounded-[50px] cursor-pointer mt-[30px] py-2 px-[18px] uppercase border border-white"
+    
+        <ContactButton 
           to="/contact"
-          @click="closeMenu"
-        >
-          contact us
-        </RouterLink>
+          text="contact us"
+          customClass="flex"
+          :onClick="closeMenu"
+        />
       </div>
     </div>
   </header>

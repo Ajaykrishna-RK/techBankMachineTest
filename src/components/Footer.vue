@@ -1,24 +1,21 @@
 <script setup lang="ts">
 import { socialLinks } from "../data/data";
 import { routes } from "../router";
+
+import AppLogo from "./common/AppLogo.vue";
+import ContactButton from "./common/ContactButton.vue";
 </script>
 
 <template>
   <div class="mt-28 relative sm:h-[850px] h-[700px] md:h-[600px]">
-    <div class="container ">
+    <div class="container">
       <div class="grid md:flex justify-between w-full">
-        <div class="flex items-center sm:h-[51px] h-[34px]">
-          <img
-            src="/src/assets/Group-1.svg"
-            alt="Company Logo"
-            class="w-full h-full"
-          />
-        </div>
+        <AppLogo customClass="w-[129px] sm:h-[51px] h-[34px]" />
 
         <p class="text-[18px] md:mt-0 mt-[21px]">hi@techbank.com</p>
       </div>
 
-      <div class=" grid md:flex justify-between mt-[26px] sm:mt-20 w-full">
+      <div class="grid md:flex justify-between mt-[26px] sm:mt-20 w-full">
         <div class="flex flex-col z-10">
           <p
             class="headFont text-[24px] sm:text-[32px] text-[rgba(255,255,255,1)]"
@@ -31,17 +28,17 @@ import { routes } from "../router";
             the Future
           </p>
 
-          <button
-            class="rounded-[50px] text-[16px] w-fit text-[white] cursor-pointer mt-[25px] sm:mt-[30px] py-[9px] sm:py-4 px-[23px] sm:px-[30px] uppercase border border-white"
-          >
-            contact us
-          </button>
+          <ContactButton
+            to="/contact"
+            text="contact us"
+            customClass="mt-[25px] sm:mt-[30px]"
+          />
         </div>
         <div
           class="flex md:mt-0 z-10 mt-[30px] justify-between gap-20 lg:gap-[150px] text-[14px] sm:text-[20px] lg:pr-20"
         >
           <!-- Left column: nav links -->
-          <ul class="space-y-3 ">
+          <ul class="space-y-3">
             <li v-for="route in routes" :key="route.path">
               <RouterLink
                 :to="route.path"
@@ -63,9 +60,12 @@ import { routes } from "../router";
       </div>
 
       <div
-        class="hidden  md:flex justify-between text-[18px] text-[rgba(251,253,255,1)] mt-10 items-center"
+        class="hidden md:flex justify-between text-[18px] text-[rgba(251,253,255,1)] mt-10 items-center"
       >
-        <div v-if="socialLinks?.length" class="flex z-10 items-center gap-[27px]">
+        <div
+          v-if="socialLinks?.length"
+          class="flex z-10 items-center gap-[27px]"
+        >
           <img
             v-for="(icon, index) in socialLinks"
             :key="index"
@@ -84,7 +84,10 @@ import { routes } from "../router";
       <div
         class="justify-center md:hidden mt-[41px] items-center flex flex-col"
       >
-        <div v-if="socialLinks?.length" class="flex z-10 items-center gap-[27px]">
+        <div
+          v-if="socialLinks?.length"
+          class="flex z-10 items-center gap-[27px]"
+        >
           <img
             v-for="(icon, index) in socialLinks"
             :key="index"

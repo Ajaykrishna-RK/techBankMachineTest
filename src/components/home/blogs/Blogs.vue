@@ -89,7 +89,7 @@ const onSlideChange = (swiper: any) => {
           </swiper-slide>
 
           <!-- ✅ Pagination inside Swiper -->
-          <div class="custom-pagination mt-6 flex justify-center"></div>
+          <div class="custom-pagination mt-6 mb-2 flex justify-center"></div>
         </swiper>
 
         <!-- ➡️ Right Arrow -->
